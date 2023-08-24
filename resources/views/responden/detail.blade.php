@@ -38,7 +38,7 @@
                             @php
                                 $no = 1;
                             @endphp
-                            @foreach($responden as $item)
+                            @foreach($jawaban as $item)
                                 <tr>
                                     <td>{{ $no++ }}</td>
                                     <td>{{ $item->no_induk_kartukeluarga }}</td>
@@ -50,9 +50,9 @@
                                     <td>{{ $item->rt }}/{{ $item->rw }}</td>
                                     <td>{{ $item->status }}</td>
                                     <td>
-                                        <a href="{{ route('responden.edit', $item->id) }}" class="btn btn-warning" title="Ubah Data">
+                                        {{-- <a href="{{ route('responden.edit', $item->id) }}" class="btn btn-warning" title="Ubah Data">
                                             <i class="fa fa-pencil-alt"></i>
-                                        </a>
+                                        </a> --}}
                                     </td>
                                 </tr>
                             @endforeach
