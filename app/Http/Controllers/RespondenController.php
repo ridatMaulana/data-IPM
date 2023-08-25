@@ -38,8 +38,9 @@ class RespondenController extends Controller
      */
     public function show(Responden $responden)
     {
-        $data['responden'] = $responden;
+        $data['rest'] = $responden->get();
         $data['jawaban'] = Jawaban::where('respondens_id', $responden->id)->get();
+        // dd($data['rest']);
         return view('responden.detail')->with($data);
     }
 
@@ -48,7 +49,8 @@ class RespondenController extends Controller
      */
     public function edit(Responden $responden)
     {
-        //
+        $data['responden'] = $responden;
+        return view('responden.form')->with($data);
     }
 
     /**
@@ -56,7 +58,13 @@ class RespondenController extends Controller
      */
     public function update(Request $request, Responden $responden)
     {
-        //
+        $responden->update($request->all());
+        $notification = array(
+            'message' => 'Data Berhasil Diubah',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('responden.index')->with($notification);
     }
 
     /**

@@ -2,20 +2,20 @@
     <link href="{{ asset('assets') }}/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 @endpush
 @extends('admin.header')
-@section('title',"Responden")
+@section('title',"Jawaban")
 @section('content')
 <section>
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-4 text-gray-800">Responden</h1>
+        <h1 class="h3 mb-4 text-gray-800">Jawaban</h1>
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Data Responden</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Data Jawaban</h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <table class="table table-bordered" id="dataTable" cellspacing="0">
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -27,7 +27,9 @@
                                 <th>Desa Asal</th>
                                 <th>RT/RW</th>
                                 <th>Status</th>
-                                <th>Aksi</th>
+                                @foreach ($pertanyaan as $item)
+                                <th>{{ $pertanyaan->pertanyaan }}</th>
+                                @endforeach
                             </tr>
                         </thead>
                         <tfoot>
