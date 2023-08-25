@@ -56,6 +56,8 @@ class JawabanController extends Controller
                 'pertanyaans_id' => $jawaban['pertanyaans_id']
             ]);
         }
+
+        return view('thank');
     }
 
     /**
